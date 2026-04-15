@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="A Survey on Open-Source Turkish TTS - D. Roxas">
+  <meta name="description" content="A comprehensive survey of Turkish text-to-speech datasets, models, and the absence of emotional speech resources.">
+  <meta name="keywords" content="Turkish, TTS, text-to-speech, speech synthesis, survey, low-resource, emotional speech, HuggingFace">
+  <meta name="author" content="Daniel Quillan Roxas">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="A Survey on Open-Source Turkish Text-to-Speech">
+  <meta property="og:description" content="20 papers, 10 datasets, 21 models reviewed. No Turkish emotional speech dataset exists.">
+
+  <meta name="citation_title" content="A Literature Survey on Open-Source Turkish Text-to-Speech: Datasets, Models, and Emotion">
+  <meta name="citation_author" content="Roxas, Daniel Quillan">
+  <meta name="citation_publication_date" content="2026">
+
+  <title>Turkish TTS Survey - D. Roxas</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <style>
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .finding-card {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid #3273dc;
+    }
+    .finding-card h4 {
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .finding-card p {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #3273dc;
+      display: block;
+    }
+    table.survey-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 1rem 0;
+    }
+    table.survey-table th {
+      background: #363636;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    table.survey-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    table.survey-table tr:nth-child(even) {
+      background: #fafafa;
+    }
+    .tag-yes { color: #23d160; font-weight: 700; }
+    .tag-no { color: #ff3860; font-weight: 700; }
+    .tag-partial { color: #ffdd57; font-weight: 700; }
+    .section-icon {
+      margin-right: 0.5rem;
+      color: #3273dc;
+    }
+  </style>
+</head>
+<body>
+
+<main id="main-content">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">A Survey on Open-Source Turkish Text-to-Speech</h1>
+          <h2 class="subtitle is-4" style="margin-top: -0.5rem; color: #666;">Datasets, Models, and the Absence of Emotion</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://github.com/danielquillanroxas" target="_blank">Daniel Quillan Roxas</a></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">2026</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="static/pdfs/turkish_tts_literature_survey.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper (PDF)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/danielquillanroxas" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="static/pdfs/turkish_tts_references.csv" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>References (CSV)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Numbers -->
+<section class="section" style="padding-top: 1rem; padding-bottom: 2rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <span class="stat-number">20</span>
+        <p>Papers Reviewed</p>
+      </div>
+      <div class="column">
+        <span class="stat-number">10</span>
+        <p>Datasets Analyzed</p>
+      </div>
+      <div class="column">
+        <span class="stat-number">21</span>
+        <p>Models Verified</p>
+      </div>
+      <div class="column">
+        <span class="stat-number">0</span>
+        <p>Emotional Speech Datasets</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Turkish is an agglutinative language spoken by over 83 million people, yet it remains underserved in text-to-speech synthesis. This survey reviews 20 peer-reviewed papers, 10 community speech datasets on HuggingFace, and 21 open-source Turkish-specific TTS models. We evaluate each resource on three axes: dataset openness, model openness, and emotion support. Our findings show that no peer-reviewed work provides Turkish emotional speech data; the highest-quality system (MOS 4.39) is proprietary; 80% of HuggingFace datasets lack licenses; and community contributors have adopted modern architectures (F5-TTS, Orpheus) that have not appeared in academic Turkish TTS publications. We present these findings without prescriptive bias and let the evidence speak for itself.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Findings -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Key Findings</h2>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <h4>No Emotional Speech Data</h4>
+        <p>Across all 20 papers and 10 datasets, not a single resource provides Turkish speech annotated with emotion labels. Two community models (Orpheus) offer non-verbal cue tags (laugh, sigh), but no categorical emotion conditioning exists.</p>
+      </div>
+      <div class="finding-card">
+        <h4>Best System is Closed</h4>
+        <p>The highest reported MOS (4.39) belongs to Turkcell's proprietary system trained on 63 hours from a professional voice actress. No data, code, or weights were released. The best open effort achieves MOS 4.49 but with incomplete artifacts.</p>
+      </div>
+      <div class="finding-card">
+        <h4>Licensing is Unreliable</h4>
+        <p>Only 2 of 10 HuggingFace datasets declare any license. The largest dataset mislabels CC-BY-NC-SA-3.0 as CC-BY-SA-3.0. Multiple models have conflicting license metadata and model card restrictions.</p>
+      </div>
+      <div class="finding-card">
+        <h4>80% Lack Documentation</h4>
+        <p>Eight of ten datasets have empty READMEs with no methodology, source attribution, or quality metrics. Independent verification of data quality is impossible for most resources.</p>
+      </div>
+      <div class="finding-card">
+        <h4>Academic vs. Community Gap</h4>
+        <p>Academic papers use Tacotron 2 and FastSpeech 2 (2023). Community contributors deploy F5-TTS, Orpheus, LLaSA, and Dia (2025). But none of the 21 community models report formal MOS scores.</p>
+      </div>
+      <div class="finding-card">
+        <h4>Turkish Lags Behind Tatar</h4>
+        <p>TatarTTS provides 70 hours with MOS 4.54-4.65 under CC-BY-4.0. Turkish, with 15x more speakers, has no equivalent open resource combining dataset, model, and evaluation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dataset Table -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Open-Source Turkish Speech Datasets</h2>
+    <div style="overflow-x: auto;">
+      <table class="survey-table">
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Samples</th>
+            <th>Hours</th>
+            <th>kHz</th>
+            <th>License</th>
+            <th>Speakers</th>
+            <th>Emotion</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Appenlimited/700h-tr</td><td>2,000</td><td>5.6</td><td>16</td><td>Unknown</td><td>~20</td><td class="tag-no">No</td><td>Mislabeled (says 700h); commercial sample</td></tr>
+          <tr><td>Anilosan15/Turkish_TTS</td><td>30,606</td><td>~33</td><td>48</td><td>None</td><td>1</td><td class="tag-no">No</td><td>YouTube scrape; copyright concern</td></tr>
+          <tr><td>mukahraman/orpheus-tr</td><td>1,000</td><td>-</td><td>24</td><td>None</td><td>-</td><td class="tag-no">No</td><td>Pre-tokenized; Orpheus-locked</td></tr>
+          <tr><td>falan42/Bentropi (11 parts)</td><td>2,595</td><td>~10</td><td>16</td><td>None</td><td>1</td><td class="tag-no">No</td><td>YouTube extraction; copyright</td></tr>
+          <tr><td>falan42/Tunc_M</td><td>4,552</td><td>~10</td><td>16</td><td>None</td><td>1</td><td class="tag-no">No</td><td>YouTube math lectures</td></tr>
+          <tr><td>falan42/Mert-H</td><td>837</td><td>~3</td><td>16</td><td>None</td><td>1</td><td class="tag-no">No</td><td>YouTube educational; duplicated</td></tr>
+          <tr><td><strong>afkfatih/combined-raw</strong></td><td><strong>81,513</strong></td><td><strong>~130</strong></td><td>24</td><td>CC-BY-SA-3.0*</td><td>100s</td><td class="tag-no">No</td><td>Largest; license mislabeled</td></tr>
+          <tr><td>afkfatih/snac-tokenized</td><td>81,513</td><td>~130</td><td>24</td><td>CC-BY-NC-SA</td><td>100s</td><td class="tag-no">No</td><td>Orpheus-locked</td></tr>
+          <tr><td>Anilosan15/Synthetic</td><td>13,000</td><td>29</td><td>16</td><td><strong>CC-BY-4.0</strong></td><td>4</td><td class="tag-no">No</td><td>Fully synthetic; TTS source undisclosed</td></tr>
+          <tr><td>yuserabv/turkish_tts</td><td>30,915</td><td>-</td><td>-</td><td>None</td><td>-</td><td class="tag-no">No</td><td>SpeechT5 features only; no raw audio</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.8rem; color: #888;">*Effective license is CC-BY-NC-SA-3.0 due to Khan Academy source component.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Model Table -->
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Verified Turkish TTS Models</h2>
+    <div style="overflow-x: auto;">
+      <table class="survey-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Architecture</th>
+            <th>Size</th>
+            <th>License</th>
+            <th>DL/mo</th>
+            <th>Emotion</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="7" style="background:#e8e8e8; font-weight:700;">F5-TTS (Flow Matching + DiT)</td></tr>
+          <tr><td>Orkhon-TTS</td><td>F5-TTS</td><td>3.4 GB</td><td>Apache 2.0</td><td>77</td><td class="tag-no">No</td><td>Alpha; voice cloning</td></tr>
+          <tr><td>marduk-ra/F5-Turkish</td><td>F5-TTS</td><td>4.1 GB</td><td>CC-BY-NC</td><td>-</td><td class="tag-no">No</td><td>3 checkpoints; 24 likes</td></tr>
+          <tr><td>Karayakar/F5-Turkish</td><td>F5-TTS</td><td>4.1 GB</td><td>MIT</td><td>-</td><td class="tag-no">No</td><td>Demo Space available</td></tr>
+
+          <tr><td colspan="7" style="background:#e8e8e8; font-weight:700;">Orpheus (Llama 3B + SNAC)</td></tr>
+          <tr><td><strong>Karayakar/Orpheus-PT-5000</strong></td><td>Orpheus 3B</td><td>13.2 GB</td><td>MIT</td><td><strong>204</strong></td><td class="tag-yes">Yes</td><td>Emotion tags; most popular</td></tr>
+          <tr><td>Karayakar/Orpheus-GGUF</td><td>Orpheus Q5</td><td>2.4 GB</td><td>MIT</td><td>69</td><td class="tag-yes">Yes</td><td>CPU quantized</td></tr>
+          <tr><td>Cosmobillian/turkish_orpheus</td><td>Orpheus F16</td><td>6.6 GB</td><td>Apache 2.0</td><td>5</td><td class="tag-yes">Yes</td><td>PT-5000 fine-tune</td></tr>
+
+          <tr><td colspan="7" style="background:#e8e8e8; font-weight:700;">SpeechT5 (~100-145M params)</td></tr>
+          <tr><td>Omarrran/speecht5_tts</td><td>SpeechT5</td><td>0.5 GB</td><td>MIT</td><td>107</td><td class="tag-no">No</td><td>Intern exercise</td></tr>
+          <tr><td>deryauysal/cv_tr</td><td>SpeechT5</td><td>0.6 GB</td><td>MIT</td><td>10</td><td class="tag-no">No</td><td>Common Voice</td></tr>
+
+          <tr><td colspan="7" style="background:#e8e8e8; font-weight:700;">Other</td></tr>
+          <tr><td><strong>facebook/mms-tts-tur</strong></td><td>VITS 36M</td><td>145 MB</td><td>CC-BY-NC</td><td><strong>4,116</strong></td><td class="tag-no">No</td><td>Most downloaded overall</td></tr>
+          <tr><td>Anilosan15/kani-tts-400m</td><td>LFM2 370M</td><td>740 MB</td><td>Apache 2.0</td><td>282</td><td class="tag-no">No</td><td>Academic only</td></tr>
+          <tr><td>SalihHub/karagoz-hacivat</td><td>XTTS-v2</td><td>3.8 GB</td><td>CC-BY-NC-SA</td><td>0</td><td class="tag-no">No</td><td>Cultural theme</td></tr>
+          <tr><td>Piper tr_TR-dfki</td><td>VITS ONNX</td><td>63 MB</td><td>MIT</td><td>-</td><td class="tag-no">No</td><td>Only Piper Turkish voice</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <div class="bibtex-header">
+      <h2 class="title">BibTeX</h2>
+    </div>
+    <pre><code>@article{roxas2026turkishtts,
+  title={A Literature Survey on Open-Source Turkish Text-to-Speech:
+         Datasets, Models, and Emotion},
+  author={Roxas, Daniel Quillan},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content" style="text-align: center;">
+          <p>
+            Built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>
