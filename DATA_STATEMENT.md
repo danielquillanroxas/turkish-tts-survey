@@ -25,4 +25,4 @@ The catalog covers resources surfaced by the search described in the paper's Met
 Please cite the paper and this catalog's Zenodo DOI (to be minted).
 
 ## Contact
-Daniel Quillan Roxas (corresponding author) -- ORCID 0009-0000-4484-6751 (https://orcid.org/0009-0000-4484-6751); Ali Bolat -- ORCID 0009-0002-0488-2250 (https://orcid.org/0009-0002-0488-2250).
+Daniel Quillan Roxas (corresponding author) -- dquillan.roxas@tedu.edu.tr -- ORCID 0009-0000-4484-6751 (https://orcid.org/0009-0000-4484-6751); Ali Bolat -- ali.bolat@tedu.edu.tr -- ORCID 0009-0002-0488-2250 (https://orcid.org/0009-0002-0488-2250).
