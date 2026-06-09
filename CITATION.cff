@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this catalog, please cite it (and the accompanying survey)."
+title: "A Catalog of Open-Source Turkish Text-to-Speech Resources (Datasets, Models, and References)"
+type: dataset
+version: 1.0.0
+date-released: 2026-06-10
+license: CC-BY-4.0
+authors:
+  - family-names: Roxas
+    given-names: Daniel Quillan
+    orcid: "https://orcid.org/0009-0000-4484-6751"
+    affiliation: "TED University, Ankara, Turkey"
+  - family-names: Bolat
+    given-names: Ali
+    orcid: "https://orcid.org/0009-0002-0488-2250"
+    affiliation: "TED University, Ankara, Turkey"
+keywords:
+  - Turkish
+  - text-to-speech
+  - TTS
+  - speech synthesis
+  - low-resource languages
+  - datasets
+  - open-source models
+  - license auditing
+  - emotional speech
+  - HuggingFace

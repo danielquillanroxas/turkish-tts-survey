@@ -1,0 +1,25 @@
+{
+  "title": "A Catalog of Open-Source Turkish Text-to-Speech Resources (Datasets, Models, and References)",
+  "description": "Descriptive-metadata catalog accompanying the literature survey \"A Literature Survey on Open-Source Turkish Text-to-Speech: Datasets, Models, and Emotion\" (Roxas & Bolat, 2026). It provides audited records for the surveyed scholarly works, HuggingFace speech datasets, and open-source Turkish TTS models, capturing size, sample rate, licensing findings, documentation status, architecture, and emotion support. The catalog redistributes no audio, text, or model weights: it contains descriptive metadata and pointers (repository IDs and, where applicable, full commit/revision hashes) to third-party resources hosted elsewhere. License and source notes are good-faith audited observations, not legal advice or accusations. See DATA_STATEMENT.md for methodology, provenance, scope, and caveats.",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "creators": [
+    { "name": "Roxas, Daniel Quillan", "orcid": "0009-0000-4484-6751", "affiliation": "TED University, Ankara, Turkey" },
+    { "name": "Bolat, Ali", "orcid": "0009-0002-0488-2250", "affiliation": "TED University, Ankara, Turkey" }
+  ],
+  "keywords": [
+    "Turkish",
+    "text-to-speech",
+    "TTS",
+    "speech synthesis",
+    "low-resource languages",
+    "datasets",
+    "open-source models",
+    "license auditing",
+    "emotional speech",
+    "HuggingFace"
+  ],
+  "language": "eng",
+  "version": "1.0.0"
+}
